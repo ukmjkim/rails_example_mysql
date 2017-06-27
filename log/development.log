@@ -1,0 +1,96 @@
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2017-06-27 00:42:40 -0700
+Connecting to database specified by database.yml
+Served asset /rails.png - 200 OK (60ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (147.7ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (358.9ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36m (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateAnimals (20170627074628)
+Connecting to database specified by database.yml
+  [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateAnimals (20170627074628)
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateAnimals (20170627074628)
+  [1m[35m (0.6ms)[0m  CREATE TABLE `animals` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `age` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+Mysql2::Error: All parts of a PRIMARY KEY must be NOT NULL; if you need NULL in a key, use UNIQUE instead: CREATE TABLE `animals` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `age` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateAnimals (20170627074628)
+  [1m[35m (0.4ms)[0m  CREATE TABLE `animals` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `age` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+Mysql2::Error: All parts of a PRIMARY KEY must be NOT NULL; if you need NULL in a key, use UNIQUE instead: CREATE TABLE `animals` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `age` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateAnimals (20170627074628)
+  [1m[35m (0.5ms)[0m  CREATE TABLE `animals` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `age` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+Mysql2::Error: All parts of a PRIMARY KEY must be NOT NULL; if you need NULL in a key, use UNIQUE instead: CREATE TABLE `animals` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `age` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateAnimals (20170627074628)
+  [1m[35m (126.2ms)[0m  CREATE TABLE `animals` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `age` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20170627074628')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateBones (20170627074809)
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateBones (20170627074809)
+  [1m[35m (115.6ms)[0m  CREATE TABLE `bones` (`id` int(11) auto_increment PRIMARY KEY, `animal_id` int(11), `bone_type` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20170627074809')
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mAnimal Load (42.8ms)[0m  [1mSELECT `animals`.* FROM `animals` WHERE `animals`.`id` = 1 LIMIT 1[0m
+  [1m[35mBone Load (0.4ms)[0m  SELECT `bones`.* FROM `bones` WHERE `bones`.`id` = 1 LIMIT 1
+DEPRECATION WARNING: It looks like you are eager loading table(s) (one of: animals, animal) that are referenced in a string SQL snippet. For example: 
+
+    Post.includes(:comments).where("comments.title = 'foo'")
+
+Currently, Active Record recognizes the table in the string, and knows to JOIN the comments table to the query, rather than loading comments in a separate query. However, doing this without writing a full-blown SQL parser is inherently flawed. Since we don't want to write an SQL parser, we are removing this functionality. From now on, you must explicitly tell Active Record when you are referencing a table from a string:
+
+    Post.includes(:comments).where("comments.title = 'foo'").references(:comments)
+
+If you don't rely on implicit join references you can disable the feature entirely by setting `config.active_record.disable_implicit_join_references = true`. (called from to_str at /Users/MijungKimMacPro/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/irb.rb:498)
+DEPRECATION WARNING: It looks like you are eager loading table(s) (one of: animals, animal) that are referenced in a string SQL snippet. For example: 
+
+    Post.includes(:comments).where("comments.title = 'foo'")
+
+Currently, Active Record recognizes the table in the string, and knows to JOIN the comments table to the query, rather than loading comments in a separate query. However, doing this without writing a full-blown SQL parser is inherently flawed. Since we don't want to write an SQL parser, we are removing this functionality. From now on, you must explicitly tell Active Record when you are referencing a table from a string:
+
+    Post.includes(:comments).where("comments.title = 'foo'").references(:comments)
+
+If you don't rely on implicit join references you can disable the feature entirely by setting `config.active_record.disable_implicit_join_references = true`. (called from irb_binding at (irb):10)
+DEPRECATION WARNING: It looks like you are eager loading table(s) (one of: animals, animal) that are referenced in a string SQL snippet. For example: 
+
+    Post.includes(:comments).where("comments.title = 'foo'")
+
+Currently, Active Record recognizes the table in the string, and knows to JOIN the comments table to the query, rather than loading comments in a separate query. However, doing this without writing a full-blown SQL parser is inherently flawed. Since we don't want to write an SQL parser, we are removing this functionality. From now on, you must explicitly tell Active Record when you are referencing a table from a string:
+
+    Post.includes(:comments).where("comments.title = 'foo'").references(:comments)
+
+If you don't rely on implicit join references you can disable the feature entirely by setting `config.active_record.disable_implicit_join_references = true`. (called from irb_binding at (irb):11)
+DEPRECATION WARNING: It looks like you are eager loading table(s) (one of: animals, animal) that are referenced in a string SQL snippet. For example: 
+
+    Post.includes(:comments).where("comments.title = 'foo'")
+
+Currently, Active Record recognizes the table in the string, and knows to JOIN the comments table to the query, rather than loading comments in a separate query. However, doing this without writing a full-blown SQL parser is inherently flawed. Since we don't want to write an SQL parser, we are removing this functionality. From now on, you must explicitly tell Active Record when you are referencing a table from a string:
+
+    Post.includes(:comments).where("comments.title = 'foo'").references(:comments)
+
+If you don't rely on implicit join references you can disable the feature entirely by setting `config.active_record.disable_implicit_join_references = true`. (called from irb_binding at (irb):4)
+  [1m[36m (150.6ms)[0m  [1mSELECT COUNT(DISTINCT `animals`.`id`) AS count_id, animal.id AS animal_id FROM `animals` LEFT OUTER JOIN `bones` ON `bones`.`animal_id` = `animals`.`id` GROUP BY animal.id[0m
+Mysql2::Error: Unknown column 'animal.id' in 'field list': SELECT COUNT(DISTINCT `animals`.`id`) AS count_id, animal.id AS animal_id FROM `animals` LEFT OUTER JOIN `bones` ON `bones`.`animal_id` = `animals`.`id` GROUP BY animal.id
+  [1m[35m (70.0ms)[0m  SELECT COUNT(*) AS count_all, animals.id AS animals_id FROM `animals` GROUP BY animals.id
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) AS count_all, animals.id AS animals_id FROM `animals` GROUP BY animals.id[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) AS count_all, animals.id AS animals_id FROM `animals` GROUP BY animals.id
+  [1m[36mAnimal Load (43.4ms)[0m  [1mSELECT `animals`.* FROM `animals` GROUP BY animals.id[0m
+  [1m[35mBone Load (43.5ms)[0m  SELECT `bones`.* FROM `bones` WHERE `bones`.`animal_id` IN (1, 2, 3, 4)
+  [1m[36m (21.1ms)[0m  [1mSELECT COUNT(DISTINCT bones.id) AS count_bones_id, animals.id AS animals_id FROM `animals` LEFT OUTER JOIN `bones` ON `bones`.`animal_id` = `animals`.`id` GROUP BY animals.id[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(DISTINCT bones.id) AS count_bones_id, animals.id AS animals_id FROM `animals` LEFT OUTER JOIN `bones` ON `bones`.`animal_id` = `animals`.`id` GROUP BY animals.id
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(DISTINCT bones.id) AS count_bones_id, animals.id AS animals_id FROM `animals` LEFT OUTER JOIN `bones` ON `bones`.`animal_id` = `animals`.`id` GROUP BY animals.id[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(DISTINCT bones.id) AS count_bones_id, animals.id AS animals_id FROM `animals` LEFT OUTER JOIN `bones` ON `bones`.`animal_id` = `animals`.`id` GROUP BY animals.id
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(DISTINCT bones.id) AS count_bones_id, animals.id AS animals_id FROM `animals` LEFT OUTER JOIN `bones` ON `bones`.`animal_id` = `animals`.`id` GROUP BY animals.id[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(DISTINCT bones.id) AS count_bones_id, animals.id AS animals_id FROM `animals` LEFT OUTER JOIN `bones` ON `bones`.`animal_id` = `animals`.`id` GROUP BY animals.id
+  [1m[36m (49.3ms)[0m  [1mSELECT `animals`.*, COUNT(`bones`.`animal_id`) AS bones_count FROM `animals` LEFT OUTER JOIN `bones` ON `animals`.`id` = `bones`.`animal_id` GROUP BY `animals`.`id`[0m
+  [1m[35m (0.9ms)[0m  SELECT `animals`.*, COUNT(`bones`.`animal_id`) AS bones_count FROM `animals` LEFT OUTER JOIN `bones` ON `animals`.`id` = `bones`.`animal_id` GROUP BY `animals`.`id`

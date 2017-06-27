@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 
+  animal_id: 
+  bone_type: MyString
+
+two:
+  id: 
+  animal_id: 
+  bone_type: MyString
